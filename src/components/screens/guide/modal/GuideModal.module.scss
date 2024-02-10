@@ -1,0 +1,31 @@
+.uni-modal__btn {
+  display: inline-block;
+  padding: 10px 41px;
+}
+
+.uni-modal__list-box {
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 400px;
+  margin-bottom: 30px;
+}
+
+.uni-modal { 
+  background-color: rgba(0,0,0,0.5);
+  & .wrapper {
+    width: calc(1100 * 100% / 1440);
+    background-color: rgba(46, 108, 169, 0.2);
+    backdrop-filter: blur(30.5769px);
+    border-radius: 3px;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  @media (max-width: 1140px) {
+    & .wrapper {
+      width: 100%;
+    }
+    padding: 0 15px;
+  }
+}

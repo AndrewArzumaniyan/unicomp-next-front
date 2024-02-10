@@ -1,0 +1,63 @@
+.market-modal {
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+.market-modal__title {
+  position: sticky;
+}
+
+.market-modal__info {
+  width: 100%;
+  overflow: auto;
+}
+
+.market-modal__bg {
+  flex: 0 0 calc(379 * 100% / 858);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 21px;
+  display: flex;
+
+  @media (max-width: 520px) {
+    flex: 0 0 100%;
+    margin-right: 0;
+    max-height: 200px;
+    margin-bottom: 10px;
+  }
+  
+  &::after {
+    content: "";
+    background: rgba(0, 0, 0, 0.44);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.market-modal__title {
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 31px;
+  letter-spacing: 0.035em;
+}
+
+.market-modal__descr {
+  overflow: auto;
+  font-weight: 400;
+  font-size: 16px;
+  width: 100%;
+  line-height: 20px;
+  letter-spacing: 0.035em;
+  height: calc(100%);
+}
+
+.market-modal__address {
+  margin-bottom: 15px;
+}

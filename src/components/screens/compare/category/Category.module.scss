@@ -1,0 +1,58 @@
+@import "../../../../styles/vars.scss";
+
+.category {
+  padding-bottom: $global-padding-big;
+  padding-top: $global-padding-big;
+
+  @media (max-width: 820px) {
+    padding-bottom: $global-padding-mid;
+    padding-top: $global-padding-mid;
+  }
+
+  @media (max-width: 510px) {
+    padding-bottom: $global-padding-less;
+    padding-top: $global-padding-less;
+  }
+}
+
+.category__title {
+  margin-bottom: 20px !important;
+  transition: all .3s;
+
+  &.active {
+    color: red;
+  }
+
+  span {
+    display: block;
+    font-size: 12px;
+    color: red;
+  }
+}
+
+.category__all-btn {
+  margin-left: 10px;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 40px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: #fff;
+  }
+  
+  &.active {
+    color: #2e8eff;
+    &::after {
+      background: #2e8eff;
+    }
+  }
+}

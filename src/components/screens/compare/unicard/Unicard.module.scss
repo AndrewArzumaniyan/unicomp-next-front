@@ -1,0 +1,270 @@
+@import "../.../../../../../styles/vars.scss";
+
+.unicard {
+  padding-bottom: $global-padding-big;
+  position: relative;
+
+  @media (max-width: 820px) {
+    padding-bottom: $global-padding-mid;
+  }
+
+  @media (max-width: 520px) {
+    padding-bottom: $global-padding-less;
+  }
+
+  & .color {
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.unicard__slider {
+  max-width: 818px;
+  margin: 0 auto;
+  margin-bottom: 140px; 
+
+  @media (max-width: 820px) {
+    margin-bottom: 80px;
+  }
+}
+
+.unicard__title {
+  display: none;
+  color: darkred;
+  margin-left: $container-padding-right-big;
+  // text-align: center;
+  margin-bottom: 40px;
+
+  @media (max-width: 1140px) {
+    margin-left: $container-padding-right-mid;
+  }
+
+  @media (max-width: 520px) {
+    margin-left: $container-padding-right-less;
+  }
+}
+
+.unicard__box {
+  padding: 0 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 520px) {
+    padding: 0 10px;
+  }
+}
+
+.unicard__card {
+  padding: 147px 0  131px 0;
+  height: 418px;
+  width: calc(33.3333% - 16px);
+  background: linear-gradient(180deg, rgba(46, 108, 169, 0.43) 0%, rgba(46, 108, 169, 0.1376) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  &:first-child {
+    margin-top: 75px;
+  }
+  &:last-child {
+    margin-bottom: 75px;
+  }
+  &:nth-child(2) {
+    align-self: center;
+  }
+
+  @media (max-width: 820px) {
+    height: 242px;
+    width: calc(33.3333% - 10px);
+  }
+
+  @media (max-width: 820px) {
+    height: 132px;
+    width: calc(33.3333% - 8px);
+  }
+}
+
+.unicard__card-name {
+  width: 100%;
+  padding: 20px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 31px;
+  letter-spacing: 0.035em;
+  text-align: center;
+  padding: 25px;
+
+  @media (max-width: 820px) {
+    font-size: 13px;
+  }
+}
+
+.unicard__card-bg {
+  margin: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  z-index: -2;
+
+  @media (max-width: 820px) {
+    margin: 13px;
+  }
+
+  &::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+}
+
+.unicard__icon {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  margin-bottom: 30px;
+
+  &::after, &::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  &::after {
+    transform: rotate(90deg);    
+  }
+
+  @media (max-width: 820px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.unicard__text {
+  text-align: center;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 0.035em;
+
+  @media (max-width: 820px) {
+    font-size: 13px;
+    line-height: 16.3px;
+  }
+}
+
+.unicard__btn-box {
+  text-align: center;
+}
+
+.unicard__btn {
+  display: inline-block;
+  padding: 10px 57px 15px 57px;
+}
+
+.compare-error-text {
+  color: red;
+  margin-top: 10px;
+}
+
+
+
+body {
+  &.hidden {
+    overflow: hidden;
+  }
+}
+
+.uni-modal {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.uni-modal { 
+  & .wrapper {
+    width: calc(1100 * 100% / 1440);
+    background-color: rgba(46, 108, 169, 0.2);
+    backdrop-filter: blur(30.5769px);
+    border-radius: 3px;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  @media (max-width: 1140px) {
+    & .wrapper {
+      width: 100%;
+    }
+    padding: 0 15px;
+  }
+}
+.uni-modal__title {
+  margin-bottom: 20px;
+}
+
+.uni-modal__search-box {
+  display: inline-block;
+}
+
+.uni-modal__title-box {
+  margin-bottom: 20px;
+}
+
+.uni-modal__list-box {
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 400px;
+  margin-bottom: 30px;
+}
+
+.uni-modal__item {
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 26px;
+  letter-spacing: 0.07em;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+  position: relative;
+}
+
+.uni-modal__list-input {
+  position: absolute;
+  left: -100000000%;
+
+  &:checked ~ .uni-modal__list-text {
+    color: #226dc4;
+  }
+}
+
+.uni-modal__list-text {
+  cursor: pointer;
+
+  &:hover {
+    color: #2E8EFF;
+  }
+
+  &:active {
+    color: #1d5ba2;
+  }
+}
+
+.uni-modal__btn {
+  display: inline-block;
+  padding: 10px 41px;
+}
