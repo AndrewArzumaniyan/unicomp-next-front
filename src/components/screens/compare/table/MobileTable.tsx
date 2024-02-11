@@ -28,14 +28,14 @@ const MobileTable: FC<MobileTableProps> = ({ universities, rows, size }) => {
         >
           {universities.map((university) => (
             <SwiperSlide key={university._id}>
-              <div className={styles["mobile-table__slide-bg"]} style={{ backgroundImage: `url(/images/universities/${university.img ? university.img.trim : "bg"})` }}></div>
+              <div className={styles["mobile-table__slide-bg"]} style={{ backgroundImage: `url(/images/universities/${university.img ? university.img : "bg.png"})` }}></div>
               <h3 className={styles["mobile-table__slide-title"]}>
                 {university.visibleName ? university.visibleName : university.name}
               </h3>
             </SwiperSlide>
           ))}
-          <div className={styles["mobile-table__btn-prev swiper-button-prev"]}></div>
-          <div className={styles["mobile-table__btn-next swiper-button-next"]}></div>
+          <div className="mobile-table__btn-prev swiper-button-prev"></div>
+          <div className="mobile-table__btn-next swiper-button-next"></div>
         </Swiper>
 
         {rows.map((row, index) => (
