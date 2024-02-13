@@ -13,7 +13,7 @@ interface compareProps {
 }
 
 const Compare: FC<compareProps> = ({ categories, universities }) => {
-  
+
   let [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [isResize, setIsResize] = useState(0);
   
@@ -64,8 +64,6 @@ const Compare: FC<compareProps> = ({ categories, universities }) => {
       <Main isResize={isResize} categories={categories} universities={universities}/>
 
       <Footer />
-
-      <>{typeof categories}</>
     </div>
   );
 }

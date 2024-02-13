@@ -22,7 +22,7 @@ const Category: FC<CategoryProps> = ({ checkedCategories, setCheckedCategories, 
       <div className="container">
       <h2 className={`${styles['category__title']} title`}>
           Выбрать категории
-          <span>Необходимо выбрать минимум одну категорию!</span>
+          <span>Необходимо выбрать минимум одну категорию</span>
         </h2>
         <span onClick={changeAllCategories} className={styles['category__all-btn']}>выбрать все</span>
         <CategorySwiper categories={categories} allCategories={allCategories} checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} />

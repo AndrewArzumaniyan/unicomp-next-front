@@ -14,6 +14,7 @@
   .btn {
     padding: 10px 20px;
     display: inline-block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
     animation: lightsToggle 1s ease infinite;
   }
 }
@@ -97,17 +98,21 @@
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  transition: box-shadow .3s ease;
+  transition-property: box-shadow filter;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+  cursor: pointer;
   
   &.enabled {
-    cursor: pointer;
     &:hover {
       box-shadow: 0px 0px 41px rgba(107, 158, 255, 0.61);
     }
   }
 
   &.disabled {
-    filter: grayscale(1);
+    &:hover {
+      filter: grayscale(1);
+    }
   }
 }
 

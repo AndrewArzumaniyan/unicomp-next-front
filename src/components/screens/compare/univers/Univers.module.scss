@@ -2,6 +2,7 @@
 
 .univers {
   padding-bottom: $global-padding-big;
+  // text-align: center;
   position: relative;
 
   @media (max-width: 820px) {
@@ -22,7 +23,7 @@
 }
 
 .univers__title {
-  margin-bottom: 14px;
+  margin-bottom: 0px;
 }
 
 .univers__subtitle {

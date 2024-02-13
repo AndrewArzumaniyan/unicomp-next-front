@@ -16,7 +16,7 @@ const Header: FC<HeaderProps> = ({ isBurgerOpen }) => {
 
         <nav className={`${styles.header__nav} ${isBurgerOpen ? 'active' : ''}`}>
           <ul className={styles.header__list}>
-            <li className={styles.header__item}>
+            {/* <li className={styles.header__item}>
               <Link href="/not-ready" className={styles.header__link}>
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M5.64516 6.25771C5.64516 2.80167 8.71418 0 12.5 0C16.2858 0 19.3548 2.80167 19.3548 6.25771C19.3548 9.71375 16.2858 12.5154 12.5 12.5154C8.71418 12.5154 5.64516 9.71375 5.64516 6.25771ZM12.5 2.2086C10.0503 2.2086 8.06452 4.02145 8.06452 6.25771C8.06452 8.49397 10.0503 10.3068 12.5 10.3068C14.9496 10.3068 16.9355 8.49397 16.9355 6.25771C16.9355 4.02145 14.9496 2.2086 12.5 2.2086Z" fill="white"/>
@@ -24,7 +24,7 @@ const Header: FC<HeaderProps> = ({ isBurgerOpen }) => {
                 </svg>
                 <span>личный&nbsp;кабинет</span>
               </Link>
-            </li>
+            </li> */}
 
             <li className={styles.header__item}>
               <Link href="/" className={styles.header__link}>
@@ -54,15 +54,15 @@ const Header: FC<HeaderProps> = ({ isBurgerOpen }) => {
               </Link>
             </li>
 
-            {/* <li className={styles.header__item}>
+            <li className={styles.header__item}>
               <Link href="/market" className={styles.header__link}>
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M12.5 2.14286C6.77991 2.14286 2.14286 6.77991 2.14286 12.5C2.14286 18.2201 6.77991 22.8571 12.5 22.8571C18.2201 22.8571 22.8571 18.2201 22.8571 12.5C22.8571 6.77991 18.2201 2.14286 12.5 2.14286ZM0 12.5C0 5.59644 5.59644 0 12.5 0C19.4036 0 25 5.59644 25 12.5C25 19.4036 19.4036 25 12.5 25C5.59644 25 0 19.4036 0 12.5Z" fill="white"/>
                   <path fillRule="evenodd" clipRule="evenodd" d="M10.8568 8.65536C9.52317 9.75256 8.63219 11.2958 8.34882 12.9994L7.72319 16.7606C7.39831 18.7137 9.66936 20.0249 11.1984 18.767L14.1429 16.3446C15.4765 15.2474 16.3675 13.7042 16.6509 12.0006L17.2765 8.23938C17.6014 6.28621 15.3304 4.97501 13.8013 6.23295L10.8568 8.65536ZM12.5 10.3571C11.3165 10.3571 10.3571 11.3165 10.3571 12.5C10.3571 13.6835 11.3165 14.6429 12.5 14.6429C13.6835 14.6429 14.6429 13.6835 14.6429 12.5C14.6429 11.3165 13.6835 10.3571 12.5 10.3571Z" fill="white"/>
                 </svg>
-                <span>УниверМаркет</span>              
+                <span>Каталог</span>              
               </Link>
-            </li> */}
+            </li>
           </ul>
         </nav>
       </div>
