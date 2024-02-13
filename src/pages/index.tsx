@@ -9,30 +9,22 @@ import { UniverService } from '@/services/universities.service';
 interface ComparePageProps {
   categories: Category[];
   universities: Univer[];
-  showPreloader: boolean;
 }
 
-const ComparePage: NextPage<ComparePageProps> = ({ categories, universities, showPreloader }) => {
+const ComparePage: NextPage<ComparePageProps> = ({ categories, universities }) => {
   return (
-    <>
-      {showPreloader && <PageLoading />}
-      {!showPreloader && (
-        <Compare categories={categories} universities={universities}/>
-      )}
-    </>
+    <Compare categories={categories} universities={universities}/>
   )
 }
 
 export const getStaticProps: GetStaticProps<ComparePageProps> = async () => {
-  let showPreloader = true;
   const categories = await CategoryService.getAll();
   const universities = await UniverService.getAll();
-  showPreloader = false;
+
   return {
     props: {
       categories,
-      universities,
-      showPreloader
+      universities
     },
     revalidate: 60
   }

@@ -6,19 +6,18 @@ import Header from "@/components/UI/header/Header";
 import Footer from "@/components/UI/footer/Footer";
 
 const Geography: FC<any> = ({ cities }) => {
-  // autoScroll(1300);
-  setTimeout(() => {
-    document.getElementById("main")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    })
-  }, 1300)
-
+  
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [isResize, setIsResize] = useState(0);
-
+  
   // Использование useEffect для установки значения только на клиенте
   useEffect(() => {
+    setTimeout(() => {
+      document.getElementById("main")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }, 1300)
     setIsResize(window.innerWidth);
 
     const handleResize = (el: Event) => {

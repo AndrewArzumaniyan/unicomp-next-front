@@ -7,19 +7,18 @@ import { UniverData } from "@/interfaces/univer.interface";
 // import autoScroll from "./autoScroll.js";
 
 const UniverMarket: FC<UniverData> = ({ universities }) => {
-  // autoScroll(1300);
-  setTimeout(() => {
-    document.getElementById("main")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    })
-  }, 1300)
-
+  
   let [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [isResize, setIsResize] = useState(0);
-
+  
   // Использование useEffect для установки значения только на клиенте
   useEffect(() => {
+    setTimeout(() => {
+      document.getElementById("main")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }, 1300)
     setIsResize(window.innerWidth);
 
     const handleResize = (el: Event) => {

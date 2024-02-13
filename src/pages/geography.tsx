@@ -6,29 +6,20 @@ import { GetStaticProps, NextPage } from "next";
 
 interface GeographyPageProps {
   universities: Univer[];
-  showPreloader: boolean;
 }
 
-const GeographyPage: NextPage<GeographyPageProps> = ({ universities, showPreloader }) => {
+const GeographyPage: NextPage<GeographyPageProps> = ({ universities }) => {
   return (
-    <>
-      {showPreloader && <PageLoading />} 
-      {!showPreloader && (
-        <Geography universities={universities} />
-      )}
-    </>
+    <Geography universities={universities} />
   )
 }
 
 export const getStaticProps: GetStaticProps<GeographyPageProps> = async () => {
-  let showPreloader = true;
   const universities = await UniverService.getAll();
-  showPreloader = false;
 
   return {
     props: {
-      universities,
-      showPreloader
+      universities
     },
     revalidate: 60
   }

@@ -8,14 +8,11 @@ const UniverMarketPage: NextPage<UniverData> = ({ universities }) => {
 }
 
 export const getStaticProps: GetStaticProps<UniverData> = async () => {
-  let showPreloader = true;
   const universities = await UniverService.getAll();
-  showPreloader = false;
 
   return {
     props: {
-      universities,
-      showPreloader
+      universities
     },
     revalidate: 60
   }

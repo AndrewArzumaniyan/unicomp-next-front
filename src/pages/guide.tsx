@@ -2,19 +2,16 @@ import Guide from "@/components/screens/guide/Guide";
 import { CityService } from "@/services/cities.service";
 import { GetStaticProps, NextPage } from "next";
 
-const GuidePage: NextPage<any> = ({ cities, showPreloader }) => {
+const GuidePage: NextPage<any> = ({ cities }) => {
   return <Guide cities={cities}/>
 }
 
 export const getStaticProps: GetStaticProps<any> = async () => {
-  let showPreloader = true;
   const cities = await CityService.getAll();
-  showPreloader = false;
 
   return {
     props: {
-      cities,
-      showPreloader
+      cities
     },
     revalidate: 60
   }
