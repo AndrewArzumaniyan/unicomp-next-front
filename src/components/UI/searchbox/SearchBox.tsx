@@ -16,7 +16,7 @@ const SearchBox: FC<SearchBoxProps> = ({ searchQuery, setSearchQuery }) => {
         placeholder="поиск"
         className="uni-modal__search-input search__input"
         value={searchQuery}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+        onInput={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value.toLowerCase())}
       />
     </div>
   );
