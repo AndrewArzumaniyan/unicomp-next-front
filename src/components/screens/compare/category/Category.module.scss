@@ -48,6 +48,10 @@
     height: 1px;
     background: #fff;
   }
+
+  &:hover {
+    color: $hover-color;
+  }
   
   &.active {
     color: #2e8eff;

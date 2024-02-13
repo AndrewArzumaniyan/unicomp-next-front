@@ -180,9 +180,15 @@
   &:not(:nth-child(4n)) {
     margin-right: 20px;
   }
+
+  .card__bg {
+    transition: opacity .3s ease;
+  }
   
-  &:hover .card__bg{
-    opacity: .48; 
+  &:hover {
+    .card__bg{
+      opacity: .48; 
+    }
   }
 
   @media (max-width: 1140px) {

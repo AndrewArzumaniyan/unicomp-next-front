@@ -76,6 +76,12 @@
     justify-content: space-between;
     padding: 6px 1px 0 1px;
 
+    &:hover {
+      &::before {
+        background-color: $hover-color;
+      }
+    }
+
     &::before{
       content: "";
       width: 100%;
@@ -84,6 +90,7 @@
       left: 0;
       background-color: #fff;
       height: 3px;
+      transition: background-color .3s ease;
     }
 
     &:not(:last-child){
