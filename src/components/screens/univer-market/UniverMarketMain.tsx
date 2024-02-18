@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useEffect } from "react";
 import ModalCard from "@/components/UI/modal/ModalCard";
 import Market from "./UniverMarketCatalog";
 import MarketHero from "./UniverMarketHero";
@@ -12,6 +12,13 @@ interface marketMainProps {
 const MarketMain: FC<marketMainProps> = ({ isResize, universities }) => {
   let [pickedUniver, setPickedUniver] = useState({})
   let [isModalOpen, setIsModalOpen] = useState(false)
+
+  useEffect(() => {
+    if (document.body.classList.contains('hidden')) {
+      document.body.classList.remove('hidden')
+    }
+
+  }, [])
 
   const openModal = () => {
     setIsModalOpen(true)

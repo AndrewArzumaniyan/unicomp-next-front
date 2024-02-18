@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import GeographyHero from "./GeographyHero";
 import ModalCard from "@/components/UI/modal/ModalCard";
 import Map from "./Map";
@@ -22,6 +22,13 @@ interface MapProps {
 const GeographyMain: FC<UniverData> = ({ universities }) => {
   const [pickedUniver, setPickedUniver] = useState<any>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (document.body.classList.contains('hidden')) {
+      document.body.classList.remove('hidden')
+    }
+
+  }, [])
 
   const openModal = () => {
     setIsModalOpen(true);

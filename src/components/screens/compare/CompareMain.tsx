@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Category from "./category/Category";
 import Hero from "./CompareHero";
 import Unicard from "./unicard/Unicard";
@@ -21,6 +21,13 @@ const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
   let [checkedCategories, setCheckedCategories] = useState<any[]>([]);
   let [cardsUnivers, setCardsUnivers] = useState<any[]>([]);
   let [rows, setRows] = useState<string[][]>([]);
+
+  useEffect(() => {
+    if (document.body.classList.contains('hidden')) {
+      document.body.classList.remove('hidden')
+    }
+
+  }, [])
 
   const openModal = () => {
     setUnicardModalOpen(true)

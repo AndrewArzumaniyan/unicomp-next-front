@@ -10,5 +10,11 @@ export const UniverService = {
   async getAll() {
     const { data } = await axios.get<Univer[]>('/universities');
     return data;
+  },
+
+  async getUniverById(id: any) {
+    const data = await this.getAll();
+
+    return data.filter((el) => el._id.toString() === id)[0];
   }
 }

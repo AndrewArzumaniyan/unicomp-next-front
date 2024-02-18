@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Modal from "./Modal";
 import styles from "./ModalCard.module.scss";
+import Link from "next/link";
 
 interface ModalProps {
   visible: boolean;
@@ -31,9 +32,9 @@ const MarketModal: FC<ModalProps> = ({visible, delVisible, univer}) => {
         style={{backgroundImage: `url(/images/universities/${univer.img ? univer.img.trim() : "bg.png"})`}}
       ></div>
       <div className={styles["market-modal__info"]}>
-        <h2 className={styles["market-modal__title"]}>
+        <Link href={`/univer/${univer._id ? univer._id.toString() : ''}`} className={styles["market-modal__title"]}>
           {univer.visibleName ? univer.visibleName : univer.name}
-        </h2>
+        </Link>
           <h4 className={styles["market-modal__address"]}>
             {univer.city}, {univer.address}
           </h4>

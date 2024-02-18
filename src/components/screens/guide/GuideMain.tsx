@@ -1,4 +1,4 @@
-import React, { useState, useMemo, FC } from "react";
+import React, { useState, useMemo, useEffect, FC } from "react";
 import GeographyHero from "./GuideHero";
 import GuideNavigation from "./guide-navigation/GuideNavigation";
 import useLoadBd from "@/hooks/useLoad";
@@ -27,6 +27,13 @@ const GuideMain: FC<GuideMainProps> = ({ isResize, data }) => {
     }
     return tmp;
   }, [data]);
+
+  useEffect(() => {
+    if (document.body.classList.contains('hidden')) {
+      document.body.classList.remove('hidden')
+    }
+
+  }, [])
 
   const openModal = () => {
     setModalOpen(true);
