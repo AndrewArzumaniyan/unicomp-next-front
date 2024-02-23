@@ -5,6 +5,7 @@ import Footer from "@/components/UI/footer/Footer";
 import styles from "./Univer.module.scss";
 import Feedback from "@/components/UI/feedback/Feedback";
 import FeedbackModal from "@/components/UI/feedback/FeedbackModal";
+import Image from "next/image";
 
 
 interface UniverProps {
@@ -137,7 +138,7 @@ const Univer: FC<UniverProps> = ({ university }) => {
           <div className={`${styles["main__body"]}`}>
             <article className={`${styles["article"]}`}>
               <div className={`${styles["article__img"]}`}>
-                <img src="/images/universities/bg.png" alt={`фото университета ${university.name}`} />
+                <Image src="/images/universities/bg.png" alt={`фото университета ${university.name}`} />
               </div>
 
               <div className={`${styles["article__info"]}`}>
@@ -192,8 +193,8 @@ const Univer: FC<UniverProps> = ({ university }) => {
                     <p>{cardInfo.doctoral.value}</p>
                   </li>
 
-                  {cardInfo.categories.map((category) => (
-                    <li className={`${styles["aside__item"]}`}>
+                  {cardInfo.categories.map((category, i) => (
+                    <li key={`category-element-${i}`} className={`${styles["aside__item"]}`}>
                       <h4 className={`${styles["aside__title"]}`}>{category.name}</h4>
                       <p>{category.value}</p>
                     </li>
