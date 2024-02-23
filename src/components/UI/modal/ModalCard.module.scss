@@ -4,7 +4,9 @@
 
 
 .market-modal__title {
-  position: sticky;
+  // position: sticky;
+  cursor: pointer;
+  animation: blick 1s ease infinite;
 }
 
 .market-modal__info {
@@ -61,4 +63,18 @@
 
 .market-modal__address {
   margin-bottom: 15px;
+}
+
+@keyframes blick {
+  0% {
+    color: #fff;
+  }
+
+  50% {
+    color: #78b5fb;
+  }
+  
+  100% {
+    color: #fff;
+  }
 }

@@ -26,11 +26,11 @@ const Market: FC<MarketProps> = ({setPickedUniver, openModal, isResize, universi
   }
 
   useMemo(() => {
-    if (!universities) return
+    if (!universities.length) return
     let tmp = ['все']
     universities.forEach((univer: any) => {
-      if (!tmp.includes(univer.city.trim()))
-        tmp.push(univer.city.trim())
+      if (!tmp.includes(univer.city))
+        tmp.push(univer.city)
     })
     setCities(tmp)
   }, [universities])

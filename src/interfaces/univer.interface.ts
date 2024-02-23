@@ -19,6 +19,8 @@ export interface Univer {
   img: string;
   subscipt: boolean;
   coordinates: number[];
+  info: string;
+  site: string;
 }
 
 export interface UniverData {

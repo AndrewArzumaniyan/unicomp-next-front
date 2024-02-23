@@ -4,6 +4,7 @@ import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import PageLoading from "@/components/UI/loading/page-loading/PageLoading";
 import Univer from "@/components/screens/univer/Univer";
+import Head from "next/head";
 
 interface UniverPageProps {
   university: UniverInterface | null;
@@ -23,7 +24,13 @@ const UniverPage: NextPage<UniverPageProps> = ({ university }) => {
   }
 
   return (
-    <Univer university={university}></Univer>
+    <>
+      <Head>
+        <title>UNICOMP | {university.visibleName ? university.visibleName : university.name}</title>
+        <meta name="description" content={`Изучите подробную информацию об университете ${university.name}: категории, цены, контакты, местоположение на карте и другие важные детали. Узнайте все о предлагаемых программах обучения, услугах и возможностях для студентов. Планируйте свое образование вместе с нами!`} />
+      </Head>
+      <Univer university={university}></Univer>
+    </>
   )
 };
 

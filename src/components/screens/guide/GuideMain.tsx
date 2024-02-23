@@ -1,6 +1,8 @@
 import React, { useState, useMemo, useEffect, FC } from "react";
 import GeographyHero from "./GuideHero";
 import GuideNavigation from "./guide-navigation/GuideNavigation";
+import Feedback from "@/components/UI/feedback/Feedback";
+import FeedbackModal from "@/components/UI/feedback/FeedbackModal";
 import useLoadBd from "@/hooks/useLoad";
 import GuideModal from "./modal/GuideModal";
 import GuideArticle from "./article/GuideArticle";
@@ -12,6 +14,7 @@ interface GuideMainProps {
 
 const GuideMain: FC<GuideMainProps> = ({ isResize, data }) => {
   let [isModalOpen, setModalOpen] = useState(false);
+  let [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
   let [selectCity, setSelectCity] = useState('');
 
   const selectGuide = useMemo(() => {
@@ -45,10 +48,22 @@ const GuideMain: FC<GuideMainProps> = ({ isResize, data }) => {
     document.body.classList.remove('hidden');
   };
 
+  const openFeedbackModal = () => {
+    setFeedbackModalOpen(true);
+    document.body.classList.add('hidden');
+  };
+
+  const closeFeedbackModal = () => {
+    setFeedbackModalOpen(false);
+    document.body.classList.remove('hidden');
+  };
+
   return (
     <div className="main">
       <GuideModal isResize={isResize} setSelectCity={setSelectCity} isOpen={isModalOpen} closeModal={closeModal} cities={readyCities}/>
       <GeographyHero/>
+      <FeedbackModal visible={isFeedbackModalOpen} delVisible={closeFeedbackModal} />
+      <Feedback openModal={openFeedbackModal} />
       <GuideNavigation selectCity={selectCity} openModal={openModal}/>
       {selectGuide ?
         <GuideArticle guideEl={selectGuide}/>

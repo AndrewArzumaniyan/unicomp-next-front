@@ -3,9 +3,11 @@ import Category from "./category/Category";
 import Hero from "./CompareHero";
 import Unicard from "./unicard/Unicard";
 import UnicardModal from "./unicard/UnicardModal";
+import FeedbackModal from "@/components/UI/feedback/FeedbackModal";
 import Univers from "./univers/Univers";
 import DesktopTable from "./table/DesktopTable";
 import MobileTable from "./table/MobileTable";
+import Feedback from "@/components/UI/feedback/Feedback";
 import { Category as CategoryInterface } from "@/interfaces/category.interface";
 import { Univer } from "@/interfaces/univer.interface";
 
@@ -17,6 +19,7 @@ interface MainProps {
 
 const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
   let [isUnicardModalOpen, setUnicardModalOpen] = useState(false);
+  let [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
   let [checkedUniversities, setCheckedUniversities] = useState<any[]>([]);
   let [checkedCategories, setCheckedCategories] = useState<any[]>([]);
   let [cardsUnivers, setCardsUnivers] = useState<any[]>([]);
@@ -29,18 +32,27 @@ const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
 
   }, [])
 
-  const openModal = () => {
+  const openUnicardModal = () => {
     setUnicardModalOpen(true)
     document.body.classList.add('hidden')
   }
-  const closeModal = () => {
+  const closeUnicardModal = () => {
     setUnicardModalOpen(false)
+    document.body.classList.remove('hidden')
+  }
+
+  const openFeedbackModal = () => {
+    setFeedbackModalOpen(true)
+    document.body.classList.add('hidden')
+  }
+  const closeFeedbackModal = () => {
+    setFeedbackModalOpen(false)
     document.body.classList.remove('hidden')
   }
 
   const addUniCards = () => {
     setCardsUnivers(checkedUniversities)
-    closeModal()
+    closeUnicardModal()
   }
 
   const giveInfo = () => {
@@ -95,10 +107,12 @@ const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
         checkeds={checkedUniversities} 
         setCheckeds={setCheckedUniversities} 
         isOpen={isUnicardModalOpen} 
-        unicardModalClose={closeModal} 
+        unicardModalClose={closeUnicardModal} 
         universities={universities}
       />
-      <Unicard giveInfo={giveInfo} cardsUnivers={cardsUnivers} unicardModalOpen={openModal} />
+      <FeedbackModal visible={isFeedbackModalOpen} delVisible={closeFeedbackModal} />
+      <Feedback openModal={openFeedbackModal} />
+      <Unicard giveInfo={giveInfo} cardsUnivers={cardsUnivers} unicardModalOpen={openUnicardModal} />
       <div id="table"></div>
       {rows.length
         ? isResize >= 970
