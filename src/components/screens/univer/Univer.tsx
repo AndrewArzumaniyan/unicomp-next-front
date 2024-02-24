@@ -1,6 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
 import { Univer as UniverInterface } from "@/interfaces/univer.interface";
 import Link from "next/link";
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import { mapTheme } from "./mapStyles";
 import Footer from "@/components/UI/footer/Footer";
 import styles from "./Univer.module.scss";
 import Feedback from "@/components/UI/feedback/Feedback";
@@ -42,6 +44,11 @@ const Univer: FC<UniverProps> = ({ university }) => {
   const [cardInfo, setCardInfo] = useState<cardInfoInterface | null>(null)
 
   const [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
+
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: 'AIzaSyA-zai589VLK5bztyCdsgutMH0I3a1luUM',
+  });
 
   const openFeedbackModal = () => {
     setFeedbackModalOpen(true)
@@ -93,7 +100,7 @@ const Univer: FC<UniverProps> = ({ university }) => {
         tel: university['tel'],
         mail: university['mail']
       },
-      address: university['city'] + 'г. ' + university['address'],
+      address: 'г. ' + university['city'] + ', ' + university['address'],
       bachelor: {
         name: 'бакалавриат',
         value: 'да',
@@ -234,6 +241,27 @@ const Univer: FC<UniverProps> = ({ university }) => {
               )}
             </aside>
           </div>
+          
+          {isLoaded && (
+            <section className={`${styles["map"]}`}>
+              <GoogleMap
+                mapContainerStyle={{ width: '100%', height: '100%' }}
+                zoom={11}
+                center={{ lat: university.coordinates[0], lng: university.coordinates[1] }}
+                options={{ styles: mapTheme }}
+              >
+                <Marker
+                  position={{
+                    lat: university.coordinates[0],
+                    lng: university.coordinates[1],
+                  }}
+                  onClick={() => {
+                    
+                  }}
+                />
+              </GoogleMap>
+            </section>  
+          )}
         </div>
       </main>
 

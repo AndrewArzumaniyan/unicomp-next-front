@@ -39,6 +39,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 30px;
 
   @media (max-width: 730px) {
     flex-direction: column-reverse;
@@ -47,9 +48,10 @@
 }
 
 .article {
+  flex-grow: 1;
   flex: 0 0 calc(65% - 15px);
-  font-size: 20px;
-  font-weight: 200;
+  font-size: 14px;
+  font-weight: 300;
   line-height: 150%;
   letter-spacing: 2.5px;
   margin-right: 20px;
@@ -61,6 +63,9 @@
 }
 
 .article__info {
+  max-height: 440px;
+  overflow-y: auto;
+
   p {
     &:not(:last-child) {
       margin-bottom: 30px;
@@ -139,4 +144,10 @@
   font-size: 24px;
   font-weight: medium;
   margin-bottom: 10px;
+}
+
+.map {
+  max-width: 100%;
+  height: 300px;
+  margin-bottom: 50px;
 }
