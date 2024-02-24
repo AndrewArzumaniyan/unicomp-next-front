@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Grid, Navigation } from "swiper/modules";
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
@@ -30,7 +31,7 @@ const MobileTable: FC<MobileTableProps> = ({ universities, rows, size }) => {
             <SwiperSlide key={university._id}>
               <div className={styles["mobile-table__slide-bg"]} style={{ backgroundImage: `url(/images/universities/${university.img ? university.img : "bg.png"})` }}></div>
               <h3 className={styles["mobile-table__slide-title"]}>
-                {university.visibleName ? university.visibleName : university.name}
+                <Link href={`/univer/${university._id ? university._id : ''}`} >{university.visibleName ? university.visibleName : university.name}</Link>
               </h3>
             </SwiperSlide>
           ))}

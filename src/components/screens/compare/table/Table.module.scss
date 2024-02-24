@@ -1,5 +1,15 @@
 @import "../../../../styles/vars.scss";
 
+.table {
+  thead {
+    th {
+      span {
+        animation: blick 1s ease infinite;
+      }
+    }
+  }
+}
+
 .table__container {
   padding-right: $container-padding-right-big;
   padding-bottom: 30px;
@@ -101,6 +111,7 @@
 
 .mobile-table__slide-title {
   padding: 80px 40px;
+  animation: blick 1s ease infinite;
 }
 .mobile-table__slide-bg {
   content: "";
@@ -125,5 +136,19 @@
     left: 0;
     height: 100%;
     background: rgba(0, 0, 0, 0.65);
+  }
+}
+
+@keyframes blick {
+  0% {
+    color: #fff;
+  }
+
+  50% {
+    color: #78b5fb;
+  }
+  
+  100% {
+    color: #fff;
   }
 }

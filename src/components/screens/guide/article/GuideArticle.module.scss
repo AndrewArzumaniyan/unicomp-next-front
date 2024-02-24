@@ -16,6 +16,9 @@
   
 .article__common {
   margin-bottom: 120px;
+  font-weight: 100;
+  line-height: 150%;
+  letter-spacing: 2.5px;
 }
 
 .article__common-info {
@@ -62,9 +65,12 @@ padding: 60px 18px;
 }
 
 .article__part {
+  font-weight: 100;
+  line-height: 150%;
+  letter-spacing: 2.5px;
 
   &:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
 }
 
@@ -72,7 +78,7 @@ padding: 60px 18px;
   padding-left: 20px;
 
   &:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 

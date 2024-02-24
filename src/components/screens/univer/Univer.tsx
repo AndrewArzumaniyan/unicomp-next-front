@@ -57,6 +57,37 @@ const Univer: FC<UniverProps> = ({ university }) => {
       document.body.classList.remove('hidden')
     }
 
+    let campus: string,
+        entGrants: string, 
+        lang: string, 
+        type: string, 
+        excahgeStudy: string;
+
+    if (university['campus'])
+      campus = university['campus'].toLowerCase()
+    else 
+      campus = 'нет информации'
+
+    if (university['ENTgrants'])
+      entGrants = university['ENTgrants'].toLowerCase()
+    else 
+      entGrants = 'нет информации'
+
+    if (university['lang'])
+      lang = university['lang'].toLowerCase()
+    else 
+      lang = 'нет информации'
+
+    if (university['univerType'])
+      type = university['univerType'].toLowerCase()
+    else 
+      type = 'нет информации'
+
+    if (university['exchangeStudy'])
+      excahgeStudy = university['exchangeStudy'].toLowerCase()
+    else 
+      excahgeStudy = 'нет информации'
+
     let cardInfoTmp: cardInfoInterface = {
       contact: {
         tel: university['tel'],
@@ -66,7 +97,7 @@ const Univer: FC<UniverProps> = ({ university }) => {
       bachelor: {
         name: 'бакалавриат',
         value: 'да',
-        price: university['price']
+        price: university['price'] ? university['price'] : 'нет информации'
       },
       magistracy: {
         name: 'магистратура',
@@ -80,23 +111,23 @@ const Univer: FC<UniverProps> = ({ university }) => {
       categories: [
         {
           name: 'общежитие',
-          value: university['campus'].toLowerCase()
+          value: campus
         },
         {
           name: 'гранты по ЕНТ',
-          value: university['ENTgrants'].toLowerCase()
+          value: entGrants
         },
         {
           name: 'языки обучения',
-          value: university['lang'].toLowerCase()
+          value: lang
         },
         {
           name: 'тип университета',
-          value: university['univerType'].toLowerCase()
+          value: type
         },
         {
           name: 'учеба по обмену',
-          value: university['exchangeStudy'].toLowerCase()
+          value: excahgeStudy
         },
       ]
     };
@@ -138,7 +169,7 @@ const Univer: FC<UniverProps> = ({ university }) => {
           <div className={`${styles["main__body"]}`}>
             <article className={`${styles["article"]}`}>
               <div className={`${styles["article__img"]}`}>
-                <Image src="/images/universities/bg.png" alt={`фото университета ${university.name}`} />
+                <img src="/images/universities/bg.png" alt={`фото университета ${university.name}`} />
               </div>
 
               <div className={`${styles["article__info"]}`}>

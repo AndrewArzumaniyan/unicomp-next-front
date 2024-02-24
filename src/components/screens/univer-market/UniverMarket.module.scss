@@ -118,6 +118,10 @@
   @media (max-width: 730px) {
     width: calc(100% / 3 - 10px);
   }
+
+  @media (max-width: 460px) {
+    width: calc(100% / 2 - 10px)
+  }
 }
 
 .market__filters-inputs {

@@ -254,6 +254,10 @@ body {
     width: 200px;
   }
 
+  @media (max-width: 460px) {
+    width: 145px;
+  }
+
   &::placeholder {
     color: #fff;
   }

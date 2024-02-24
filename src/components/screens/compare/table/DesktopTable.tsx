@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./Table.module.scss";
 import { Univer } from "@/interfaces/univer.interface";
+import Link from "next/link";
 
 interface DesktopTableProps {
   universities: Univer[];
@@ -22,7 +23,7 @@ const DesktopTable: FC<DesktopTableProps> = ({ universities, rows }) => {
                     style={{height: `${100 * rows.length + 80}px`, background: `url(/images/universities/${university.img ? university.img : 'bg.png'})`}}
                   ></div>
                   <span className={styles.table__headText}>
-                    {university.visibleName ? university.visibleName : university.name}
+                    <Link href={`/univer/${university._id ? university._id : ''}`} >{university.visibleName ? university.visibleName : university.name}</Link>
                   </span>
                 </th>
               ))}

@@ -45,7 +45,7 @@ const GeographyMain: FC<UniverData> = ({ universities }) => {
       <GeographyHero/>
 
       <ModalCard univer={pickedUniver} visible={isModalOpen} delVisible={closeModal}/>
-
+      
       <div id="main" className="map" style={{ width: `100vw`, height: `100vh` }}>
         <DynamicMap
           setPickedUniver={setPickedUniver}
