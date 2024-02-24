@@ -65,6 +65,7 @@
 .article__info {
   max-height: 440px;
   overflow-y: auto;
+  margin-bottom: 40px;
 
   p {
     &:not(:last-child) {
@@ -72,7 +73,10 @@
     }
   }
 
-  margin-bottom: 40px;
+
+  @media (max-width: 730px) {
+    max-height: 100%;
+  }
 }
 
 .article__img {
