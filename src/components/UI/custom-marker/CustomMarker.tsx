@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import { Marker } from "@react-google-maps/api";
 
-const CustomMarker: FC<any> = ({ id, coordinates, onclickFunction }) => {
+const CustomMarker: FC<any> = ({ coordinates, onclickFunction }) => {
   return (
     <Marker
-      key={`univer-${id}`}
       icon={{
         url: "/images/marker.png",
         anchor: new google.maps.Point(35, 35),

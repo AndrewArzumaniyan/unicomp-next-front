@@ -251,7 +251,6 @@ const Univer: FC<UniverProps> = ({ university }) => {
                 options={{ styles: mapTheme }}
               >
                 <CustomMarker 
-                  id={university._id}
                   coordinates={university.coordinates}
                   onclickFunction={() => {}}
                 />

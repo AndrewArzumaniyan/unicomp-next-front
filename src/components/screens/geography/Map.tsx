@@ -34,7 +34,7 @@ const Map: React.FC<MapProps> = ({ openModal, setPickedUniver, universities }) =
           console.log(univer.coordinates)
           return (
             <CustomMarker 
-              id={univer._id}
+              key={`univer-${univer._id}`}
               coordinates={univer.coordinates}
               onclickFunction={() => {
                 setPickedUniver(univer);
