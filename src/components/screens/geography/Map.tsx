@@ -2,6 +2,7 @@ import React, { useMemo, useEffect } from "react";
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import { mapTheme } from "./mapStyles";
 import { Univer } from "@/interfaces/univer.interface";
+import CustomMarker from "@/components/UI/custom-marker/CustomMarker";
 import PageLoading from "@/components/UI/loading/page-loading/PageLoading";
 
 interface MapProps {
@@ -32,13 +33,10 @@ const Map: React.FC<MapProps> = ({ openModal, setPickedUniver, universities }) =
         if (coordinates && typeof coordinates[0] === 'number' && typeof coordinates[1] === 'number') {
           console.log(univer.coordinates)
           return (
-            <Marker
-              key={`univer-${univer._id}`}
-              position={{
-                lat: coordinates[0],
-                lng: coordinates[1],
-              }}
-              onClick={() => {
+            <CustomMarker 
+              id={univer._id}
+              coordinates={univer.coordinates}
+              onclickFunction={() => {
                 setPickedUniver(univer);
                 openModal();
               }}

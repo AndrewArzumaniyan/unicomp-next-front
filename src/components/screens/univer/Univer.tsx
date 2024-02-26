@@ -7,7 +7,7 @@ import Footer from "@/components/UI/footer/Footer";
 import styles from "./Univer.module.scss";
 import Feedback from "@/components/UI/feedback/Feedback";
 import FeedbackModal from "@/components/UI/feedback/FeedbackModal";
-import Image from "next/image";
+import CustomMarker from "@/components/UI/custom-marker/CustomMarker";
 
 
 interface UniverProps {
@@ -250,14 +250,10 @@ const Univer: FC<UniverProps> = ({ university }) => {
                 center={{ lat: university.coordinates[0], lng: university.coordinates[1] }}
                 options={{ styles: mapTheme }}
               >
-                <Marker
-                  position={{
-                    lat: university.coordinates[0],
-                    lng: university.coordinates[1],
-                  }}
-                  onClick={() => {
-                    
-                  }}
+                <CustomMarker 
+                  id={university._id}
+                  coordinates={university.coordinates}
+                  onclickFunction={() => {}}
                 />
               </GoogleMap>
             </section>  
