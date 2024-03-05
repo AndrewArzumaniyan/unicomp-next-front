@@ -23,6 +23,7 @@ const Main: FC<MainProps> = ({ isResize, categories, universities, isBurgerOpen,
   let [isUnicardModalOpen, setUnicardModalOpen] = useState(false);
   let [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
   let [checkedUniversities, setCheckedUniversities] = useState<any[]>([]);
+  let [tableUniversities, setTableUniversities] = useState<Univer[]>([]);
   let [checkedCategories, setCheckedCategories] = useState<any[]>([]);
   let [cardsUnivers, setCardsUnivers] = useState<any[]>([]);
   let [rows, setRows] = useState<string[][]>([]);
@@ -31,7 +32,6 @@ const Main: FC<MainProps> = ({ isResize, categories, universities, isBurgerOpen,
     if (document.body.classList.contains('hidden')) {
       document.body.classList.remove('hidden')
     }
-
   }, [])
 
   const openUnicardModal = () => {
@@ -98,10 +98,9 @@ const Main: FC<MainProps> = ({ isResize, categories, universities, isBurgerOpen,
     }
     setRows(tmp)
 
-    tmp = []
-    for(let university of checkedUniversities) {
-      tmp.push(university)
-    }
+    tmp = [...checkedUniversities]
+
+    setTableUniversities(tmp);
     setTimeout(() => {
       const element = document.getElementById('table');
       if (element) {
@@ -133,8 +132,8 @@ const Main: FC<MainProps> = ({ isResize, categories, universities, isBurgerOpen,
       <div id="table"></div>
       {rows.length
         ? isResize >= 970
-          ? <DesktopTable universities={checkedUniversities} rows={rows} />
-          : <MobileTable universities={checkedUniversities} rows={rows} size={isResize} />
+          ? <DesktopTable universities={tableUniversities} rows={rows} />
+          : <MobileTable universities={tableUniversities} rows={rows} size={isResize} />
         : ''
       }
     </main>
