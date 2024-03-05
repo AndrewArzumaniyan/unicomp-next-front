@@ -10,8 +10,8 @@ const MarketHero: FC<any> = ({ isBurgerOpen, setIsBurgerOpen }) => {
       current: false
     },
     {
-      paginationName: 'гид',
-      text: "ПУТЕВОДИТЕЛЬ ",
+      paginationName: 'гайд',
+      text: "ГАЙД ",
       link: "/guide",
       current: false
     },

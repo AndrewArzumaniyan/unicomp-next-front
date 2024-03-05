@@ -17,8 +17,8 @@ const CompareHero: FC<any> = ({isBurgerOpen, setIsBurgerOpen}) => {
       current: true
     },
     {
-      paginationName: 'гид',
-      text: "ПУТЕВОДИТЕЛЬ ",
+      paginationName: 'гайд',
+      text: "ГАЙД ",
       link: "/guide",
       current: false
     },
