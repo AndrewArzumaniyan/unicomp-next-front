@@ -31,7 +31,7 @@ const MobileTable: FC<MobileTableProps> = ({ universities, rows, size }) => {
             <SwiperSlide key={university._id}>
               <div className={styles["mobile-table__slide-bg"]} style={{ backgroundImage: `url(/images/universities/${university.img ? university.img : "bg.png"})` }}></div>
               <h3 className={styles["mobile-table__slide-title"]}>
-                <Link href={`/univer/${university._id ? university._id : ''}`} >{university.visibleName ? university.visibleName : university.name}</Link>
+                <Link href={`/univer/${university._id ? university._id : ''}`} target="_blank" >{university.visibleName ? university.visibleName : university.name}</Link>
               </h3>
             </SwiperSlide>
           ))}

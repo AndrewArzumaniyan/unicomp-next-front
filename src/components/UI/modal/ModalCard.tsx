@@ -32,7 +32,7 @@ const MarketModal: FC<ModalProps> = ({visible, delVisible, univer}) => {
         style={{backgroundImage: `url(/images/universities/${univer.img ? univer.img.trim() : "bg.png"})`}}
       ></div>
       <div className={styles["market-modal__info"]}>
-        <Link href={`/univer/${univer._id ? univer._id.toString() : ''}`} className={styles["market-modal__title"]}>
+        <Link href={`/univer/${univer._id ? univer._id.toString() : ''}`} target="_blank" className={styles["market-modal__title"]}>
           {univer.visibleName ? univer.visibleName : univer.name}
         </Link>
           <h4 className={styles["market-modal__address"]}>

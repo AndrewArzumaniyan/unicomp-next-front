@@ -31,7 +31,7 @@ const DesktopTable: FC<DesktopTableProps> = ({ universities, rows }) => {
                     style={{height: `${100 * rows.length + 80}px`, background: `${bgPath(university)}`}}
                   ></div>
                   <span className={styles.table__headText}>
-                    <Link href={`/univer/${university._id ? university._id : ''}`} >{university.visibleName ? university.visibleName : university.name}</Link>
+                    <Link href={`/univer/${university._id ? university._id : ''}`} target="_blank" >{university.visibleName ? university.visibleName : university.name}</Link>
                   </span>
                 </th>
               ))}

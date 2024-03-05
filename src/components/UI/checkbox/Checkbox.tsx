@@ -16,7 +16,8 @@ const Checkbox: FC<CheckboxProps> = ({ elem, checkeds, setCheckeds }) => {
     if (curIsChecked) {
       if (tmpCheckeds.length >= 3) {
         let firstCheckboxId = tmpCheckeds[0]._id;
-        (document.getElementById(firstCheckboxId) as HTMLInputElement).checked = false;
+        if ((document.getElementById(firstCheckboxId) as HTMLInputElement)) 
+          (document.getElementById(firstCheckboxId) as HTMLInputElement).checked = false;
 
         tmpCheckeds = tmpCheckeds.filter((el) => el._id !== firstCheckboxId);
       }
