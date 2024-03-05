@@ -86,7 +86,7 @@ const Hero: FC<HeroProps> = ({ slides, isBurgerOpen, setIsBurgerOpen }) => {
           <div className={styles.hero__box}>
             <h1 className={styles.hero__title}>
               {slides.find((slide) => slide.current === true)?.text}
-              {slides.find((slide) => slide.current === true)?.paginationName === 'путеводитель' ? (
+              {slides.find((slide) => slide.current === true)?.paginationName.toLowerCase() === 'путеводитель' ? (
                 <span>по городам</span>
               ): (
                 <span>УНИВЕРСИТЕТОВ</span>
