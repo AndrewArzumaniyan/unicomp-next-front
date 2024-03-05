@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Hero from "@/components/UI/hero/Hero";
 
-const MarketHero: FC = () => {
+const MarketHero: FC<any> = ({ isBurgerOpen, setIsBurgerOpen }) => {
   const slides = [
     {
       paginationName: 'сравнение',
@@ -30,7 +30,7 @@ const MarketHero: FC = () => {
   ]
 
   return (
-    <Hero slides={slides} />
+    <Hero slides={slides} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
   );
 }
 

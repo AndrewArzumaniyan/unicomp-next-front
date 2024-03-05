@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import styles from "./Table.module.scss";
 import { Univer } from "@/interfaces/univer.interface";
 import Link from "next/link";
+import { ThemeContext } from "@/contexts/theme.context";
 
 interface DesktopTableProps {
   universities: Univer[];
@@ -9,6 +10,13 @@ interface DesktopTableProps {
 }
 
 const DesktopTable: FC<DesktopTableProps> = ({ universities, rows }) => {
+  const { theme } = useContext(ThemeContext);
+
+  const stBg = theme === 'light' ? 'url(/images/hero-light.png' : 'url(/images/universities/bg.png';
+  const bgPath = (univer: Univer) => {
+    return univer.img ? `url(/images/universities/${univer.img.trim()}` : stBg;
+  }
+
   return (
     <section id="table" className={styles.table}>
       <div className={"container" + " " + styles.table__container}>
@@ -20,7 +28,7 @@ const DesktopTable: FC<DesktopTableProps> = ({ universities, rows }) => {
                 <th key={university._id}>
                   <div 
                     className={styles.table__bg} 
-                    style={{height: `${100 * rows.length + 80}px`, background: `url(/images/universities/${university.img ? university.img : 'bg.png'})`}}
+                    style={{height: `${100 * rows.length + 80}px`, background: `${bgPath(university)}`}}
                   ></div>
                   <span className={styles.table__headText}>
                     <Link href={`/univer/${university._id ? university._id : ''}`} >{university.visibleName ? university.visibleName : university.name}</Link>

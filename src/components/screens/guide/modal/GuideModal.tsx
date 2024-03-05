@@ -15,7 +15,7 @@ const GuideModal: FC<GuideModalProps> = ({ isResize, isOpen, closeModal, setSele
   const [chcity, setChCity] = useState('');
 
   return (
-    <Modal visible={isOpen} className="uni-modal" delVisible={closeModal}>
+    <Modal visible={isOpen} className={`uni-modal`} delVisible={closeModal}>
       <div className="guide-modal__title-box">
         <h3 className={`guide-modal__title title`}>ВЫБРАТЬ ГОРОД</h3>
       </div>

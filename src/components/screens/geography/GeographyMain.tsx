@@ -19,7 +19,7 @@ interface MapProps {
   mapElement: JSX.Element;
 }
 
-const GeographyMain: FC<UniverData> = ({ universities }) => {
+const GeographyMain: FC<any> = ({ universities, isBurgerOpen, setIsBurgerOpen }) => {
   const [pickedUniver, setPickedUniver] = useState<any>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -42,7 +42,7 @@ const GeographyMain: FC<UniverData> = ({ universities }) => {
 
   return (
     <div className="main">
-      <GeographyHero/>
+      <GeographyHero isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen}/>
 
       <ModalCard univer={pickedUniver} visible={isModalOpen} delVisible={closeModal}/>
       

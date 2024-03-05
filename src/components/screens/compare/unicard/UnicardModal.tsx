@@ -1,4 +1,4 @@
-import React, { useState, useMemo, FC } from "react";
+import React, { useState, useMemo, FC, useContext } from "react";
 import axios from "axios";
 import Checkbox from "@/components/UI/checkbox/Checkbox";
 import styles from "./Unicard.module.scss";
@@ -6,6 +6,7 @@ import SearchBox from "@/components/UI//searchbox/SearchBox";
 import Modal from "@/components/UI/modal/Modal";
 import useLoadBd from "@/hooks/useLoad";
 import { Univer } from "@/interfaces/univer.interface";
+import { ThemeContext } from "@/contexts/theme.context";
 
 interface UnicardModalProps {
   isResize: number;
@@ -28,6 +29,7 @@ const UnicardModal: FC<UnicardModalProps> = ({
 }) => {
   // let [data, dataLoading] = useLoadBd("http://www.unicomp.kz/api/universities");
   let [searchQuery, setSearchQuery] = useState('');
+  const { theme } = useContext(ThemeContext);
 
   const universitiesSearch = useMemo(() => {
     if (!universities) return null;
@@ -41,7 +43,7 @@ const UnicardModal: FC<UnicardModalProps> = ({
   }, [searchQuery, universities]);
 
   return (
-    <Modal visible={isOpen} className={`uni-modal ${styles["uni-modal"]}`} delVisible={unicardModalClose}>
+    <Modal visible={isOpen} className={`uni-modal ${styles["uni-modal"]} ${styles[theme]}-theme`} delVisible={unicardModalClose}>
       <div className={styles["uni-modal__title-box"]}>
         <h2 className={`${styles["uni-modal__title"]} title`}>Выберите университет:</h2>
         <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />

@@ -1,15 +1,15 @@
 @import "../.../../../../../styles/vars.scss";
 
 .unicard {
-  padding-bottom: $global-padding-big;
+  margin-top: $global-padding-big;
   position: relative;
 
   @media (max-width: 820px) {
-    padding-bottom: $global-padding-mid;
+    margin-top: $global-padding-mid;
   }
 
   @media (max-width: 520px) {
-    padding-bottom: $global-padding-less;
+    margin-top: $global-padding-less;
   }
 
   & .color {
@@ -18,14 +18,21 @@
   }
 }
 
+// .unicard__title {
+//   margin-bottom: 0px;
+// }
+
 .unicard__slider {
   max-width: 818px;
   margin: 0 auto;
-  margin-bottom: 140px; 
 
   @media (max-width: 820px) {
     margin-bottom: 80px;
   }
+}
+
+.unicard__tile-head {
+  margin-bottom: 15px !important;
 }
 
 .unicard__title {
@@ -41,6 +48,21 @@
 
   @media (max-width: 520px) {
     margin-left: $container-padding-right-less;
+  }
+}
+
+.unicard__subtitle {
+  font-size: 30px;
+  padding-left: 11px;
+  font-weight: 300;
+  margin-bottom: 25px;
+
+  @media (max-width: 820px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 520px) {
+    font-size: 18px;
   }
 }
 
@@ -95,6 +117,7 @@
 }
 
 .unicard__card-name {
+  // color: #fff;
   width: 100%;
   padding: 20px;
   font-weight: 800;
@@ -110,7 +133,7 @@
 }
 
 .unicard__card-bg {
-  margin: 20px;
+  margin: 5px;
   position: absolute;
   top: 0;
   left: 0;
@@ -132,7 +155,7 @@
     right: 0;
     bottom: 0;
     content: "";
-    background: rgba(0,0,0,0.7);
+    background: var(--card-bg);
     z-index: -1;
   }
 }
@@ -175,20 +198,6 @@
   }
 }
 
-.unicard__btn-box {
-  text-align: center;
-}
-
-.unicard__btn {
-  display: inline-block;
-  padding: 10px 57px 15px 57px;
-}
-
-.compare-error-text {
-  color: red;
-  margin-top: 10px;
-}
-
 
 
 body {
@@ -198,7 +207,8 @@ body {
 }
 
 .uni-modal {
-  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  background-color: var(--wrapper-modal-bg);
 }
 
 .uni-modal { 

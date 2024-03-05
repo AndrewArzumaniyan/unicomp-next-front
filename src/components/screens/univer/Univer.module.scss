@@ -96,7 +96,8 @@
 
 .aside {
   flex: 0 0 calc(35% - 15px);
-  background:  rgb(12, 48, 84);
+  background: rgba(46, 108, 169, 0.43);
+  backdrop-filter: blur(10px);
   border-radius: 3px;
   padding: 15px 10px;
 

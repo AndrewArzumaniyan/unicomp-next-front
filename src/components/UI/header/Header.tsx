@@ -3,18 +3,14 @@ import styles from "./Header.module.scss"
 import Link from "next/link";
 
 interface HeaderProps {
-  isBurgerOpen: boolean
+  isBurgerOpen: boolean;
 }
 
 const Header: FC<HeaderProps> = ({ isBurgerOpen }) => {
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isBurgerOpen ? styles['active'] : ''}`}>
       <div className={styles.header__wrapper}>
-        <div className={styles.header__logo}>
-          <Link href="/" >UNICOMP</Link>
-        </div>
-
-        <nav className={`${styles.header__nav} ${isBurgerOpen ? 'active' : ''}`}>
+        <nav className={`${styles.header__nav}`}>
           <ul className={styles.header__list}>
             {/* <li className={styles.header__item}>
               <Link href="/not-ready" className={styles.header__link}>

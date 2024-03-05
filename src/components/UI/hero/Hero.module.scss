@@ -1,14 +1,126 @@
 @import "../../../styles/vars.scss";
 
+.theme-toggler {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  border-radius: 3px;
+  width: 35px;
+  height: 35px;
+  z-index: 5;
+  cursor: pointer;
+  // background-color: var(bg-main);
+  transition: background-color .3s ease;
+
+  div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .3s ease;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .hero {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  color: #fff;
+}
+
+.hero__logo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101;
+  font-size: 90px;
+  opacity: 0.55;
+  font-weight: 800;
+  line-height: 1;
+  transition: all .3s ease-in-out;
+
+  &.active {
+    left: 20px;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 600px) {
+    font-size: 43px;
+  }
+}
+
+.burger {
+  position: absolute;
+  right: $container-padding-right-big;
+  top: 30px;
+  width: 36px;
+  height: 24px;
+  z-index: 102;
+  overflow: hidden;
+  cursor: pointer;
+  
+  span {
+    position: absolute;
+    width: 36px;
+    height: 2px;
+    background-color: #fff;
+    transition: all .2s ease;
+
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%) translateX(0);
+    }
+    &:nth-child(3) {
+      bottom: 0;
+    }
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+
+  @media (max-width: 1140px) {
+    right: $container-padding-right-mid;
+  }
+
+  @media (max-width: 520px) {
+    right: $container-padding-right-less;
+  }
 }
 
 .hero__container {
   width: 100%;
   height: 100%;
+  position: relative;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.43) 0%, rgba(0, 0, 0, 0) 47.4%, rgba(0, 0, 0, 0.43) 100%);
 }
 
@@ -50,7 +162,7 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   bottom: 0;
-  z-index: 100;
+  z-index: 90;
   padding-right: $container-padding-right-big;
   padding-left: 90px;
   padding-bottom: 55px;

@@ -50,7 +50,7 @@ const Geography: FC<UniverData> = ({ universities }) => {
         ""
       )} */}
       <Header isBurgerOpen={isBurgerOpen}/>
-      <GeographyMain universities={universities} />
+      <GeographyMain universities={universities} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
     </div>
   );
 };

@@ -57,7 +57,7 @@ const Geography: FC<any> = ({ cities }) => {
         : ''
       } */}
       <Header isBurgerOpen={isBurgerOpen}/>
-      <GuideMain isResize={isResize} data={cities} />
+      <GuideMain isResize={isResize} data={cities} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
       <Footer/>
     </div>
   );

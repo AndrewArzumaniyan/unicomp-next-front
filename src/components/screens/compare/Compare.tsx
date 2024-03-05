@@ -59,9 +59,9 @@ const Compare: FC<compareProps> = ({ categories, universities }) => {
         ? <HeaderBurger isBurgerOpen={isBurgerOpen} changeIsBurgerOpen={changeIsBurgerOpen} />
         : null
       }*/}
-      <Header isBurgerOpen={isBurgerOpen}/>
+      <Header isBurgerOpen={isBurgerOpen} />
 
-      <Main isResize={isResize} categories={categories} universities={universities}/>
+      <Main isResize={isResize} categories={categories} universities={universities} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
 
       <Footer />
     </div>

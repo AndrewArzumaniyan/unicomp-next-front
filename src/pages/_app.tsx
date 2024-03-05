@@ -1,8 +1,10 @@
 import '@/styles/normalize.scss';
 import '@/styles/globals.scss';
+import '@/styles/theme.scss';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
+import { ThemeContextProvider } from '@/providers/theme.context.provider';
 import PageLoading from '@/components/UI/loading/page-loading/PageLoading';
 
 
@@ -30,7 +32,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div>
-      {loading ? <PageLoading /> : <Component {...pageProps} />}
+      <ThemeContextProvider>
+        {loading ? <PageLoading /> : <Component {...pageProps} />}
+      </ThemeContextProvider>
     </div>
   )
 }

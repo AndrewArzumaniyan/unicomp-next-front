@@ -10,9 +10,11 @@ import GuideArticle from "./article/GuideArticle";
 interface GuideMainProps {
   isResize: number;
   data: any;
+  isBurgerOpen: boolean;
+  setIsBurgerOpen: any;
 }
 
-const GuideMain: FC<GuideMainProps> = ({ isResize, data }) => {
+const GuideMain: FC<GuideMainProps> = ({ isResize, data, isBurgerOpen, setIsBurgerOpen }) => {
   let [isModalOpen, setModalOpen] = useState(false);
   let [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
   let [selectCity, setSelectCity] = useState('');
@@ -61,7 +63,7 @@ const GuideMain: FC<GuideMainProps> = ({ isResize, data }) => {
   return (
     <div className="main">
       <GuideModal isResize={isResize} setSelectCity={setSelectCity} isOpen={isModalOpen} closeModal={closeModal} cities={readyCities}/>
-      <GeographyHero/>
+      <GeographyHero isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
       <FeedbackModal visible={isFeedbackModalOpen} delVisible={closeFeedbackModal} />
       <Feedback openModal={openFeedbackModal} />
       <GuideNavigation selectCity={selectCity} openModal={openModal}/>

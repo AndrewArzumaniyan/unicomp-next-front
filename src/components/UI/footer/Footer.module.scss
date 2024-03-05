@@ -3,7 +3,7 @@
 .footer {
   // background: rgba(11, 15, 31, 0.5);
   border-top: 1px solid #fff;
-  background-color: #0E1225;
+  background-color: var(--footer-bg);
 }
 
 .footer__container {

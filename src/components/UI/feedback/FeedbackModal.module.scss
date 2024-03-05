@@ -1,5 +1,6 @@
 .feedback-modal {
-  background-color: rgba(0,0,0,0.5);
+  background-color: var(--wrapper-modal-bg);
+  color: #fff;
 }
 
 .feedback-modal-box {

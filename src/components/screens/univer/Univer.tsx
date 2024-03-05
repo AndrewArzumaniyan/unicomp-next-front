@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import { Univer as UniverInterface } from "@/interfaces/univer.interface";
 import Link from "next/link";
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
@@ -8,6 +8,7 @@ import styles from "./Univer.module.scss";
 import Feedback from "@/components/UI/feedback/Feedback";
 import FeedbackModal from "@/components/UI/feedback/FeedbackModal";
 import CustomMarker from "@/components/UI/custom-marker/CustomMarker";
+import { ThemeContext } from "@/contexts/theme.context";
 
 
 interface UniverProps {
@@ -42,6 +43,11 @@ interface cardInfoInterface {
 
 const Univer: FC<UniverProps> = ({ university }) => {
   const [cardInfo, setCardInfo] = useState<cardInfoInterface | null>(null)
+
+  const { theme } = useContext(ThemeContext);
+
+  const stBg = theme === 'light' ? '/images/hero-light.png' : '/images/hero-bg.jpg';
+  const bgPath = university.img ? `/images/universities/${university.img.trim()}` : stBg;
 
   const [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
 
@@ -176,7 +182,7 @@ const Univer: FC<UniverProps> = ({ university }) => {
           <div className={`${styles["main__body"]}`}>
             <article className={`${styles["article"]}`}>
               <div className={`${styles["article__img"]}`}>
-                <img src="/images/universities/bg.png" alt={`фото университета ${university.name}`} />
+                <img src={bgPath} alt={`фото университета ${university.name}`} />
               </div>
 
               <div className={`${styles["article__info"]}`}>
@@ -248,12 +254,22 @@ const Univer: FC<UniverProps> = ({ university }) => {
                 mapContainerStyle={{ width: '100%', height: '100%' }}
                 zoom={11}
                 center={{ lat: university.coordinates[0], lng: university.coordinates[1] }}
-                options={{ styles: mapTheme }}
+                options={{ styles: theme === 'dark' ? mapTheme : [] }}
               >
-                <CustomMarker 
-                  coordinates={university.coordinates}
-                  onclickFunction={() => {}}
-                />
+                {theme === 'dark' ? (
+                  <CustomMarker 
+                    coordinates={university.coordinates}
+                    onclickFunction={() => {}}
+                  />
+                ) : (
+                  <Marker 
+                    position={{
+                      lat: university.coordinates[0],
+                      lng: university.coordinates[1]
+                    }}
+                    onClick={() => {}}
+                  />
+                )}
               </GoogleMap>
             </section>  
           )}

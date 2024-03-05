@@ -57,7 +57,7 @@ const UniverMarket: FC<UniverData> = ({ universities }) => {
         : ''
       } */}
       <Header isBurgerOpen={isBurgerOpen}/>
-      <MarketMain universities={universities} isResize={isResize}/>
+      <MarketMain universities={universities} isResize={isResize} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
       <Footer/>
     </div>
   );

@@ -8,7 +8,7 @@ interface Slide {
   current: boolean;
 }
 
-const CompareHero: FC = () => {
+const CompareHero: FC<any> = ({isBurgerOpen, setIsBurgerOpen}) => {
   const slides: Slide[] = [
     {
       paginationName: 'сравнение',
@@ -37,7 +37,7 @@ const CompareHero: FC = () => {
   ];
 
   return (
-    <Hero slides={slides} />
+    <Hero slides={slides} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
   );
 }
 

@@ -15,9 +15,11 @@ interface MainProps {
   isResize: number;
   categories: CategoryInterface[];
   universities: Univer[];
+  isBurgerOpen: boolean;
+  setIsBurgerOpen: any;
 }
 
-const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
+const Main: FC<MainProps> = ({ isResize, categories, universities, isBurgerOpen, setIsBurgerOpen }) => {
   let [isUnicardModalOpen, setUnicardModalOpen] = useState(false);
   let [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
   let [checkedUniversities, setCheckedUniversities] = useState<any[]>([]);
@@ -53,10 +55,25 @@ const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
   const addUniCards = () => {
     setCardsUnivers(checkedUniversities)
     closeUnicardModal()
+    setTimeout(() => {
+      document.getElementById("category")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }, 300)
   }
 
   const giveInfo = () => {
-    if (checkedCategories.length < 1 || checkedUniversities.length < 1) {
+    if (checkedCategories.length < 1 ) {
+      const element = document.getElementById('category');
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+      return;
+    } else if (checkedUniversities.length < 1) {
       const element = document.getElementById('main');
       if (element) {
         element.scrollIntoView({
@@ -98,9 +115,8 @@ const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
 
   return (
     <main className="main">
-      <Hero />
-      <Category checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} categories={categories} />
-      <Univers />
+      <Hero isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
+      {/* <Univers /> */}
       <UnicardModal 
         isResize={isResize} 
         addUniCards={addUniCards} 
@@ -110,9 +126,10 @@ const Main: FC<MainProps> = ({ isResize, categories, universities }) => {
         unicardModalClose={closeUnicardModal} 
         universities={universities}
       />
+      <Unicard cardsUnivers={cardsUnivers} unicardModalOpen={openUnicardModal} />
+      <Category checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} categories={categories} giveInfo={giveInfo} />
       <FeedbackModal visible={isFeedbackModalOpen} delVisible={closeFeedbackModal} />
       <Feedback openModal={openFeedbackModal} />
-      <Unicard giveInfo={giveInfo} cardsUnivers={cardsUnivers} unicardModalOpen={openUnicardModal} />
       <div id="table"></div>
       {rows.length
         ? isResize >= 970

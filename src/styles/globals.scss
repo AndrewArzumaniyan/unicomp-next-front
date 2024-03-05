@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@500&family=Source+Code+Pro:wght@400;600&display=swap');
 @import "./vars.scss";
+@import "./theme.scss";
 
-$bg-main: #0E1225;
-$global-padding-big: 140px;
-$global-padding-mid: 90px;
-$global-padding-less: 45px;
-$container-padding-right-big: 85px;
-$container-padding-right-mid: 25px;
-$container-padding-right-less: 10px;
 
 *{
   margin: 0;
@@ -31,16 +25,21 @@ ul{
 }
 
 body {
-  color: #fff;
+  color: var(--main-font-color);
   font-family: 'montserrat', sans-serif;
   overflow-x: hidden;
-  background-color: $bg-main;
+  background-color: var(--bg-main);
   height: 100vh;
   position: relative;
 
   &.hidden {
     overflow: hidden;
   }
+
+  // &.dark-theme {
+  //   background-color: $bg-main-dark;
+  //   color: $main-font-color-dark;
+  // }
 }
 
 .wrapper {
@@ -58,9 +57,10 @@ body {
   filter: blur(56.706px);
   transform: rotate(-6.45deg);
 }
+
 .main {
   min-height: 100vh;
-  background-color: $bg-main;
+  // background-color: $bg-main-light;
 }
 
 .container {
@@ -142,13 +142,25 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0E1D;
+  background: #494949;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3A7DCD;
+  background: #b2b2b2;
   box-shadow: inset 0px 9px 9px rgba(0, 0, 0, 0.43);
   border-radius: 3px;
+}
+
+body.dark-theme {
+  ::-webkit-scrollbar-track {
+    background: #0B0E1D;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #3A7DCD;
+    box-shadow: inset 0px 9px 9px rgba(0, 0, 0, 0.43);
+    border-radius: 3px;
+  } 
 }
 
 // Checkbox
@@ -342,7 +354,7 @@ th:first-child{
   font-size: 19.7472px;
   line-height: 24px;
   letter-spacing: 0.035em;
-  color: rgba(255, 255, 255, 0.5);
+  // color: rgba(255, 255, 255, 0.5);
 }
 
 td:first-child {
@@ -516,6 +528,9 @@ img {
 
 
 .uni-modal {
+  background: var(--wrapper-modal-bg);
+  color: #fff;
+
   & .wrapper {
     width: calc(1100 * 100% / 1440);
     background-color: rgba(46, 108, 169, 0.2);

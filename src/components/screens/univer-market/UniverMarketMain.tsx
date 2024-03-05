@@ -9,9 +9,11 @@ import FeedbackModal from "@/components/UI/feedback/FeedbackModal";
 interface marketMainProps {
   isResize: number;
   universities: Univer[];
+  isBurgerOpen: boolean;
+  setIsBurgerOpen: any;
 }
 
-const MarketMain: FC<marketMainProps> = ({ isResize, universities }) => {
+const MarketMain: FC<marketMainProps> = ({ isResize, universities, isBurgerOpen, setIsBurgerOpen }) => {
   let [pickedUniver, setPickedUniver] = useState({})
   let [isModalOpen, setIsModalOpen] = useState(false)
   let [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false)
@@ -45,7 +47,7 @@ const MarketMain: FC<marketMainProps> = ({ isResize, universities }) => {
 
   return (
     <main className="main">
-      <MarketHero/>
+      <MarketHero isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
       
       <FeedbackModal visible={isFeedbackModalOpen} delVisible={closeFeedbackModal} />
       <Feedback openModal={openFeedbackModal} />

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Hero from "@/components/UI/hero/Hero";
 
-const GeographyHero: FC = () => {
+const GeographyHero: FC<any> = ({ isBurgerOpen, setIsBurgerOpen }) => {
   const slides = [
     {
       paginationName: 'сравнение',
@@ -30,7 +30,7 @@ const GeographyHero: FC = () => {
   ]
 
   return (
-    <Hero slides={slides} />
+    <Hero slides={slides} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
   );
 }
 

@@ -1,0 +1,17 @@
+:root {
+  --bg-main: #E0E0E0;
+  --wrapper-modal-bg: rgba(0,0,0,0.85);
+  --main-font-color: #000;
+  --footer-bg: rgba(0,0,0,0.61);
+  --card-bg: rgba(255, 255, 255, 0.5);
+  --table-bg: rgba(255,255,255, 0.7);
+}
+
+.dark-theme {
+  --bg-main: #0E1225;
+  --wrapper-modal-bg: rgba(0,0,0,0.4);
+  --main-font-color: #fff;
+  --footer-bg: #0E1225;
+  --card-bg: rgba(0, 0, 0, 0.5);
+  --table-bg: rgba(0,0,0, 0.9);
+}

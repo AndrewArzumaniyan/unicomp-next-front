@@ -1,4 +1,4 @@
-const mapTheme = [
+const darkMapTheme = [
   {
     "elementType": "geometry",
     "stylers": [
@@ -297,5 +297,5 @@ const mapTheme = [
 ]
 
 export {
-  mapTheme
+  darkMapTheme
 };

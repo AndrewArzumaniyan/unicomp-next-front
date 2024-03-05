@@ -6,10 +6,9 @@ import UnicardFill from "./UnicardFill";
 interface UnicardProps {
   unicardModalOpen: () => void;
   cardsUnivers: any[];
-  giveInfo: () => void;
 }
 
-const Unicard: FC<UnicardProps> = ({ unicardModalOpen, cardsUnivers, giveInfo }) => {
+const Unicard: FC<UnicardProps> = ({ unicardModalOpen, cardsUnivers }) => {
   const newCardsUnivers = () => {
     let res = [...cardsUnivers];
 
@@ -23,8 +22,12 @@ const Unicard: FC<UnicardProps> = ({ unicardModalOpen, cardsUnivers, giveInfo })
   };
 
   return (
-    <section className={styles.unicard}>
+    <section id="main" className={styles.unicard}>
       <div className={styles.color}></div>
+      <div className="container">
+        <h2 className={`${styles["unicard__tile-head"]} title`}>СРАВНИ УНИВЕРСИТЕТЫ</h2>
+        <h4 className={styles["unicard__subtitle"]}>выбери ВУЗы</h4>
+      </div>
       <div className={styles["unicard__slider"]}>
         <h3 className={styles["unicard__title"]}>Выберите хотя бы один ВУЗ</h3>
         <div className={styles["unicard__box"]}>
@@ -36,13 +39,6 @@ const Unicard: FC<UnicardProps> = ({ unicardModalOpen, cardsUnivers, giveInfo })
                 else return <UnicardEmpty key={ind} onClick={unicardModalOpen} />;
               })}
         </div>
-      </div>
-
-      <div className={styles["unicard__btn-box"]}>
-        <span onClick={giveInfo} className={`${styles["unicard__btn"]} btn`}>
-          сравнить
-        </span>
-        <p className={styles["compare-error-text"]}></p>
       </div>
     </section>
   );
