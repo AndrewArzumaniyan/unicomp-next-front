@@ -86,7 +86,11 @@ const Hero: FC<HeroProps> = ({ slides, isBurgerOpen, setIsBurgerOpen }) => {
           <div className={styles.hero__box}>
             <h1 className={styles.hero__title}>
               {slides.find((slide) => slide.current === true)?.text}
-              <span>УНИВЕРСИТЕТОВ</span>
+              {slides.find((slide) => slide.current === true)?.paginationName === 'путеводитель' ? (
+                <span>по городам</span>
+              ): (
+                <span>УНИВЕРСИТЕТОВ</span>
+              )}
             </h1>
             <a onClick={handleClick} href="#main" className={`${styles.hero__btn} btn`}>перейти</a>
           </div>
