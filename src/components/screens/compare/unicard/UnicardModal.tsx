@@ -58,12 +58,12 @@ const UnicardModal: FC<UnicardModalProps> = ({
       </div>
       <div className={`checkbox__list-box ${styles["uni-modal__list-box"]}`}>
         {universitiesSearch && Object.entries(universitiesSearch).map(([city, universities]: [string, Univer[]]) => (
-          <div className={styles['uni-modal__list-part-box']}>
+          <div className={styles['uni-modal__list-part-box']} key={`${city}`} >
             <h4 className={styles['uni-modal__list-title']}>{city}</h4>
             <div className={`${styles["uni-modal__list-part"]}`}>
               {universities && universities.length ? isResize >= 600
                 ? [0, 1].map((key) => (
-                  <ul key={key} className="checkbox__list">
+                  <ul key={`${city}-${key}`} className="checkbox__list">
                     {
                       !key
                         ? universities && universities.slice(0, Math.round(universities.length / 2)).map((university: any) => (
@@ -80,7 +80,7 @@ const UnicardModal: FC<UnicardModalProps> = ({
                   </ul>
                 ))
                 : [3].map((key) => (
-                  <ul key={key} className="checkbox__list">
+                  <ul key={`${city}-${key}`} className="checkbox__list">
                     {universities && universities.map((university: any) => (
                       <li key={university._id} className="checkbox__item">
                         <Checkbox checkeds={checkeds} setCheckeds={setCheckeds} elem={university} />
