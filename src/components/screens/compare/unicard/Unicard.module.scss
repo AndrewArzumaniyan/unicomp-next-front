@@ -244,8 +244,21 @@ body {
   display: flex;
   overflow-y: auto;
   overflow-x: hidden;
+  flex-direction: column;
   height: 400px;
   margin-bottom: 30px;
+}
+
+.uni-modal__list-part-box {
+  margin-bottom: 10px;
+}
+
+.uni-modal__list-part {
+  display: flex;
+}
+
+.uni-modal__list-title {
+  margin-bottom: 5px;
 }
 
 .uni-modal__item {

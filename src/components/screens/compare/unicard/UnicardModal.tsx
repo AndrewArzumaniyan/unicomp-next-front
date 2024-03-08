@@ -32,14 +32,22 @@ const UnicardModal: FC<UnicardModalProps> = ({
   const { theme } = useContext(ThemeContext);
 
   const universitiesSearch = useMemo(() => {
-    if (!universities) return null;
+    if (!universities.length) return null;
     return universities
       .filter((univer: any) => univer.name.toLowerCase().includes(searchQuery) || (univer.visibleName && univer.visibleName.toLowerCase().includes(searchQuery)))
       .sort((a: any, b: any) => {
         if (a.name < b.name) return -1;
         if (a.name > b.name) return 1;
         return 0;
-      });
+      })
+      .reduce((groups: { [key: string]: Univer[] }, univer: Univer) => {
+        const { city } = univer;
+        if (!groups[city]) {
+          groups[city] = [];
+        }
+        groups[city].push(univer);
+        return groups;
+      }, {});
   }, [searchQuery, universities]);
 
   return (
@@ -49,34 +57,41 @@ const UnicardModal: FC<UnicardModalProps> = ({
         <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
       <div className={`checkbox__list-box ${styles["uni-modal__list-box"]}`}>
-        {universitiesSearch && universitiesSearch.length ? isResize >= 600
-          ? [0, 1].map((key) => (
-            <ul key={key} className="checkbox__list">
-              {
-                !key
-                  ? universitiesSearch && universitiesSearch.slice(0, Math.round(universitiesSearch.length / 2)).map((university: any) => (
-                    <li key={university._id} className="checkbox__item">
-                      <Checkbox checkeds={checkeds} setCheckeds={setCheckeds} elem={university} />
-                    </li>
-                  ))
-                  : universitiesSearch && universitiesSearch.slice(Math.round(universitiesSearch.length / 2)).map((university: any) => (
-                    <li key={university._id} className="checkbox__item">
-                      <Checkbox checkeds={checkeds} setCheckeds={setCheckeds} elem={university} />
-                    </li>
-                  ))
+        {universitiesSearch && Object.entries(universitiesSearch).map(([city, universities]: [string, Univer[]]) => (
+          <div className={styles['uni-modal__list-part-box']}>
+            <h4 className={styles['uni-modal__list-title']}>{city}</h4>
+            <div className={`${styles["uni-modal__list-part"]}`}>
+              {universities && universities.length ? isResize >= 600
+                ? [0, 1].map((key) => (
+                  <ul key={key} className="checkbox__list">
+                    {
+                      !key
+                        ? universities && universities.slice(0, Math.round(universities.length / 2)).map((university: any) => (
+                          <li key={university._id} className="checkbox__item">
+                            <Checkbox checkeds={checkeds} setCheckeds={setCheckeds} elem={university} />
+                          </li>
+                        ))
+                        : universities && universities.slice(Math.round(universities.length / 2)).map((university: any) => (
+                          <li key={university._id} className="checkbox__item">
+                            <Checkbox checkeds={checkeds} setCheckeds={setCheckeds} elem={university} />
+                          </li>
+                        ))
+                    }
+                  </ul>
+                ))
+                : [3].map((key) => (
+                  <ul key={key} className="checkbox__list">
+                    {universities && universities.map((university: any) => (
+                      <li key={university._id} className="checkbox__item">
+                        <Checkbox checkeds={checkeds} setCheckeds={setCheckeds} elem={university} />
+                      </li>
+                    ))}
+                  </ul>
+                )) : "Ничего не найдено:("
               }
-            </ul>
-          ))
-          : [3].map((key) => (
-            <ul key={key} className="checkbox__list">
-              {universitiesSearch && universitiesSearch.map((university: any) => (
-                <li key={university._id} className="checkbox__item">
-                  <Checkbox checkeds={checkeds} setCheckeds={setCheckeds} elem={university} />
-                </li>
-              ))}
-            </ul>
-          )) : "Ничего не найдено:("
-        }
+            </div>
+          </div>
+        ))}
       </div>
       <span onClick={addUniCards} className={`${styles["uni-modal__btn"]} btn`}>Выбрать</span>
     </Modal>
