@@ -2,9 +2,12 @@
   --bg-main: #E0E0E0;
   --wrapper-modal-bg: rgba(0,0,0,0.85);
   --main-font-color: #000;
-  --footer-bg: rgba(0,0,0,0.61);
+  --footer-bg: rgba(0,0,0,0.4);
   --card-bg: rgba(255, 255, 255, 0.5);
   --table-bg: rgba(255,255,255, 0.7);
+  --card-box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  --scroll-bg: #fff;
+  --scroll-color: rgba(46, 108, 169, 0.72);
 }
 
 .dark-theme {
@@ -14,4 +17,7 @@
   --footer-bg: #0E1225;
   --card-bg: rgba(0, 0, 0, 0.5);
   --table-bg: rgba(0,0,0, 0.9);
+  --card-box-shadow: 5px 5px 10px #000;
+  --scroll-bg: #0B0E1D;
+  --scroll-color: #3A7DCD;
 }

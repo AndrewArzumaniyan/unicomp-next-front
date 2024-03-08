@@ -1,8 +1,9 @@
-import React, { useState, useMemo, FC } from "react";
+import React, { useState, useMemo, FC, useContext } from "react";
 import SearchBox from "@/components/UI/searchbox/SearchBox";
 import useLoadBd from "@/hooks/useLoad";
 import styles from "./UniverMarket.module.scss";
 import { Univer } from "@/interfaces/univer.interface";
+import { ThemeContext } from "@/contexts/theme.context";
 
 interface MarketProps {
   setPickedUniver: (univer: any) => void; // Укажите правильный тип для univer
@@ -16,6 +17,13 @@ const Market: FC<MarketProps> = ({setPickedUniver, openModal, isResize, universi
   let [searchQuery, setSearchQuery] = useState<string>('');
   let [selectQuery, setSelectQuery] = useState<{ city: string, campus: string, ENTgrants: string }>({ 'city': 'все', 'campus': 'все', 'ENTgrants': 'все' });
   let [page, setPage] = useState<number>(1);
+
+  const { theme } = useContext(ThemeContext);
+
+  const stBg = theme === 'light' ? 'url(/images/hero-light.png' : 'url(/images/universities/bg.png';
+  const bgPath = (univer: Univer) => {
+    return univer.img ? `url(/images/universities/${univer.img.trim()}` : stBg;  
+  }
 
   function changeSelectQuery(e: React.ChangeEvent<HTMLSelectElement>) {
     let tmp = { ...selectQuery };
@@ -159,7 +167,7 @@ const Market: FC<MarketProps> = ({setPickedUniver, openModal, isResize, universi
             <div key={`market-${univer._id}`} onClick={() => {setPickedUniver(univer); openModal()}} className={`${styles.market__card} ${styles.card}`}>
               <div
                 className={styles.card__bg}
-                style={{background: `url(/images/universities/${univer.img ? univer.img.trim() : "bg.png"})`}}
+                style={{background: `${bgPath(univer)}`}}
               ></div>
               <div className={styles.card__info}>
                 <h3 className={styles.card__title}>

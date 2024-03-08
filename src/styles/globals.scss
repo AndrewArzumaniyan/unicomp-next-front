@@ -142,25 +142,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #494949;
+  background: var(--scroll-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b2b2b2;
+  background: var(--scroll-color);
   box-shadow: inset 0px 9px 9px rgba(0, 0, 0, 0.43);
-  border-radius: 3px;
-}
-
-body.dark-theme {
-  ::-webkit-scrollbar-track {
-    background: #0B0E1D;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #3A7DCD;
-    box-shadow: inset 0px 9px 9px rgba(0, 0, 0, 0.43);
-    border-radius: 3px;
-  } 
+  // border-radius: 3px;
 }
 
 // Checkbox
@@ -495,11 +483,11 @@ img {
 
   .swiper-scrollbar {
     height: 3px !important;
-    background: #0B0E1D;
+    background: var(--scroll-bg);
     width: calc(100% - 10px - #{$container-padding-right-big}) !important;
   
     .swiper-scrollbar-drag {
-      background: #3A7DCD;
+      background: var(--scroll-color);
       box-shadow: inset 0px 9px 9px rgba(0, 0, 0, 0.43);
       border-radius: 3px;
     }
