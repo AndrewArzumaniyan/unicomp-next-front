@@ -6,6 +6,7 @@ import { mapTheme } from "./mapStyles";
 import Footer from "@/components/UI/footer/Footer";
 import styles from "./Univer.module.scss";
 import Feedback from "@/components/UI/feedback/Feedback";
+import Header from "@/components/UI/header/Header";
 import FeedbackModal from "@/components/UI/feedback/FeedbackModal";
 import CustomMarker from "@/components/UI/custom-marker/CustomMarker";
 import { ThemeContext } from "@/contexts/theme.context";
@@ -42,6 +43,8 @@ interface cardInfoInterface {
 }
 
 const Univer: FC<UniverProps> = ({ university }) => {
+  let [isBurgerOpen, setIsBurgerOpen] = useState(false);
+
   const [cardInfo, setCardInfo] = useState<cardInfoInterface | null>(null)
 
   const { theme } = useContext(ThemeContext);
@@ -150,7 +153,7 @@ const Univer: FC<UniverProps> = ({ university }) => {
 
   return (
     <>
-      <header className={`${styles["header"]}`}>
+      {/* <header className={`${styles["header"]}`}>
         <div className={`${styles["container"]}`}>
           <nav className={`${styles["header__nav"]}`}>
             <ul className={`${styles["header__list"]}`}>
@@ -172,12 +175,22 @@ const Univer: FC<UniverProps> = ({ university }) => {
             </ul>
           </nav>
         </div>
-      </header>
+      </header> */}
 
+      <Header isBurgerOpen={isBurgerOpen} />
 
       <main className={`${styles["main"]}`}>
         <div className={`${styles["container"]}`}>
           <h1 className={`${styles["title"]}`}>{university.name}</h1>
+
+          <div
+            className={`${styles.burger} ${isBurgerOpen ? styles['active'] : ''}`} 
+            onClick={() => { setIsBurgerOpen(!isBurgerOpen) }} 
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
           <div className={`${styles["main__body"]}`}>
             <article className={`${styles["article"]}`}>
