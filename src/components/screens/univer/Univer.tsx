@@ -209,6 +209,14 @@ const Univer: FC<UniverProps> = ({ university }) => {
             <aside className={`${styles["aside"]}`}>
               {cardInfo && (
                 <ul className={`${styles["aside__list"]}`}>
+                  {cardInfo.site && (
+                    <li className={`${styles["aside__item"]}`}>
+                      <h4 className={`${styles["aside__title"]}`}>сайт</h4>
+                      <Link  className={styles.link} href={cardInfo.site}>{cardInfo.site}</Link>
+                    </li>
+                  )}
+                  
+
                   <li className={`${styles["aside__item"]}`}>
                     <h4 className={`${styles["aside__title"]}`}>контакты</h4>
                     <ul>

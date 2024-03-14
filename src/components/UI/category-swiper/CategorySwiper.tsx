@@ -41,9 +41,6 @@ const CategorySwiper: React.FC<CategorySwiperProps> = ({
     let res = [...checked];
     res[index] = !res[index];
 
-    console.log(target)
-    console.log(res)
-
     setChecked(res);
     let tmpCheckeds = [...checkedCategories];
 

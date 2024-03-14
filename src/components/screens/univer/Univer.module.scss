@@ -217,3 +217,11 @@
   height: 300px;
   margin-bottom: 50px;
 }
+
+.link {
+  transition: color .3s ease;
+
+  &:hover {
+    color: rgb(56, 109, 255);
+  }
+}
